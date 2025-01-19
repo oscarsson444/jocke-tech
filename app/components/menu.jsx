@@ -1,17 +1,57 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import { Raleway } from "next/font/google";
+
+const raleway = Raleway({
+  weight: ["400", "700"],
+  style: ["normal"],
+  subsets: ["latin"],
+});
 
 export default function Menu() {
   const [showMenu, setShowMenu] = useState(true);
+  const [isDesktop, setIsDesktop] = useState(true);
   const pathname = usePathname();
+
+  useEffect(() => {
+    const checkIsMobile = () => {
+      try {
+        const userAgent = navigator.userAgent.toLowerCase();
+        const mobileRegex =
+          /(android|iphone|ipad|ipod|blackberry|windows phone)/i;
+        const isBigScreen = window.innerWidth >= 800;
+        const isDesktop = mobileRegex.test(userAgent);
+        setShowMenu(isDesktop || isBigScreen);
+        setIsDesktop(isBigScreen || isDesktop);
+      } catch (error) {
+        console.error("Error detecting mobile:", error);
+      }
+    };
+
+    // Check on mount
+    checkIsMobile();
+
+    // Check on window resize (for orientation changes)
+    const handleResize = () => checkIsMobile();
+    window.addEventListener("resize", handleResize);
+
+    // Clean up event listener
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const handleOnClick = () => {
+    if (!isDesktop) {
+      setShowMenu(false);
+    }
+  };
 
   return (
     <div
-      className={`fixed sm:relative transition-all z-20 h-screen ${
+      className={`fixed sm:relative transition-all z-20 min-h-screen ${
         showMenu ? "sm:w-1/5 w-3/5" : "w-0"
-      } bg-black text-yellow-300`}
+      } bg-black text-yellow-300 ${raleway.className}`}
     >
       {/* Blue dots decoration */}
       <div
@@ -23,7 +63,7 @@ export default function Menu() {
       </div>
       <div className="fixed">
         <button
-          className="w-12 m-4 hover:bg-gray-700/50 rounded-md p-2"
+          className="w-12 m-4 hover:bg-gray-700/50 rounded-md p-2 "
           onClick={() => setShowMenu((prev) => !prev)}
         >
           {showMenu ? (
@@ -38,12 +78,13 @@ export default function Menu() {
           <div className="flex justify-end mt-4 mr-4">
             <img className="w-12" src="/tree.svg" />
           </div>
-          <ul className="flex flex-col gap-4 ml-6 mt-24 text-lg underline-offset-4 decoration-2">
+          <ul className="flex flex-col gap-4 ml-6 mt-24 text-lg font-bold underline-offset-4 decoration-2">
             <Link
               className={`${
                 pathname === "/" ? "underline " : ""
-              } hover:text-xl transition-all duration-100`}
+              } hover:text-xl transition-all duration-30 w-fit `}
               href={`/`}
+              onClick={handleOnClick}
             >
               Home
             </Link>
@@ -51,8 +92,9 @@ export default function Menu() {
             <Link
               className={`${
                 pathname === "/posts" ? "underline " : ""
-              } hover:text-xl transition-all duration-100`}
+              } hover:text-xl transition-all duration-30 w-fit `}
               href={`/posts`}
+              onClick={handleOnClick}
             >
               Posts
             </Link>
@@ -60,8 +102,9 @@ export default function Menu() {
             <Link
               className={`${
                 pathname === "/about" ? "underline " : ""
-              } hover:text-xl transition-all duration-100`}
+              } hover:text-xl transition-all duration-30 w-fit `}
               href={`/about`}
+              onClick={handleOnClick}
             >
               About
             </Link>
@@ -69,8 +112,9 @@ export default function Menu() {
             <Link
               className={`${
                 pathname === "/contact" ? "underline " : ""
-              } hover:text-xl transition-all duration-100`}
+              } hover:text-xl transition-all duration-30 w-fit `}
               href={`/contact`}
+              onClick={handleOnClick}
             >
               Contact
             </Link>

@@ -1,22 +1,17 @@
 import Link from "next/link";
+import { contents } from "../texts/contents";
+import Frame from "../components/frame";
 
 export default function Posts() {
-  const posts = [
-    {
-      title: "First post",
-      slug: "first",
-    },
-  ];
   return (
-    <div>
-      <p>Hello posts</p>
-      <ul>
-        {posts.map((post) => (
-          <li key={post.slug}>
-            <Link href={`/posts/${post.slug}`}>{post.title}</Link>
-          </li>
+    <div className="sm:py-10 py-20 animate-fadeIn min-h-screen px-4 sm:px-20">
+      <div className="grid sm:grid-cols-3 grid-cols-1 gap-6">
+        {contents.map((content) => (
+          <Link key={content.path} href={`/posts${content.path}`}>
+            <Frame content={content} />
+          </Link>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
