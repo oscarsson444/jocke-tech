@@ -1,5 +1,7 @@
 import { Jersey_15 } from "next/font/google";
 import Image from "next/image";
+import tree from "./images/tree.svg";
+import git from "./images/git.svg";
 
 const jersey = Jersey_15({
   weight: ["400"],
@@ -16,8 +18,7 @@ export default function Home() {
           alt="Logo"
           width={128}
           height={128}
-          src="/tree.svg"
-          unoptimized={true}
+          src={tree}
         />
         <div className={jersey.className}>
           <p className=" text-7xl">jocke.tech</p>
@@ -35,7 +36,7 @@ export default function Home() {
             width={64}
             height={64}
             className="w-16 p-1 hover:p-0 transition-all duration-100"
-            src="/git.svg"
+            src={git}
           />
         </a>
         <a
