@@ -1,6 +1,7 @@
 import { Raleway } from "next/font/google";
 import { Jersey_15 } from "next/font/google";
 import Image from "next/image";
+import mountain from "../images/mountain.svg";
 
 const jersey = Jersey_15({
   weight: ["400"],
@@ -23,7 +24,7 @@ export default function About() {
           width={128}
           height={128}
           className="w-32"
-          src="/mountain.svg"
+          src={mountain}
         />
         <div className={jersey.className}>
           <p className=" text-7xl">About</p>

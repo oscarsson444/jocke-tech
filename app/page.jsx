@@ -2,6 +2,8 @@ import { Jersey_15 } from "next/font/google";
 import Image from "next/image";
 import tree from "./images/tree.svg";
 import git from "./images/git.svg";
+import linkedin from "./images/linkedin.svg";
+import mail from "./images/mail.svg";
 
 const jersey = Jersey_15({
   weight: ["400"],
@@ -50,7 +52,7 @@ export default function Home() {
             width={64}
             height={64}
             className="w-16 p-1 hover:p-0 transition-all duration-100"
-            src="/linkedin.svg"
+            src={linkedin}
           />
         </a>
         <a
@@ -64,7 +66,7 @@ export default function Home() {
             width={64}
             height={64}
             className="w-16 p-1 hover:p-0 transition-all duration-100"
-            src="/mail.svg"
+            src={mail}
           />
         </a>
       </div>

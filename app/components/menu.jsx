@@ -4,6 +4,9 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { Raleway } from "next/font/google";
 import Image from "next/image";
+import close from "../images/close.svg";
+import tree from "../images/tree.svg";
+import menu from "../images/menu.svg";
 
 const raleway = Raleway({
   weight: ["400", "700"],
@@ -73,7 +76,7 @@ export default function Menu() {
               width={48}
               height={48}
               className="w-12"
-              src="/close.svg"
+              src={close}
             />
           ) : (
             <Image
@@ -81,7 +84,7 @@ export default function Menu() {
               width={48}
               height={48}
               className="w-12"
-              src="/menu.svg"
+              src={menu}
             />
           )}
         </button>
@@ -94,7 +97,7 @@ export default function Menu() {
               width={48}
               height={48}
               className="w-12"
-              src="/tree.svg"
+              src={tree}
             />
           </div>
           <ul className="flex flex-col gap-4 ml-6 mt-24 text-lg font-bold underline-offset-4 decoration-2">
