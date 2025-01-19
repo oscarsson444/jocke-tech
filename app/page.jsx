@@ -17,6 +17,7 @@ export default function Home() {
           width={128}
           height={128}
           src="/tree.svg"
+          unoptimized={true}
         />
         <div className={jersey.className}>
           <p className=" text-7xl">jocke.tech</p>
