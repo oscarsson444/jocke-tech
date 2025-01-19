@@ -1,5 +1,6 @@
 import { Raleway } from "next/font/google";
 import { Jersey_15 } from "next/font/google";
+import Image from "next/image";
 
 const jersey = Jersey_15({
   weight: ["400"],
@@ -17,7 +18,13 @@ export default function About() {
   return (
     <div className="flex flex-col gap-10 animate-fadeIn min-h-screen justify-center sm:mt-0 mt-16 sm:mb-0 mb-4 sm:px-0 px-4">
       <div className="flex sm:flex-row flex-col gap-4 justify-center items-center overflow-scroll">
-        <img className="w-32" src="/mountain.svg" />
+        <Image
+          alt="Mountain"
+          width={128}
+          height={128}
+          className="w-32"
+          src="/mountain.svg"
+        />
         <div className={jersey.className}>
           <p className=" text-7xl">About</p>
         </div>

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { Raleway } from "next/font/google";
+import Image from "next/image";
 
 const raleway = Raleway({
   weight: ["400", "700"],
@@ -67,16 +68,34 @@ export default function Menu() {
           onClick={() => setShowMenu((prev) => !prev)}
         >
           {showMenu ? (
-            <img className="w-12" src="/close.svg" />
+            <Image
+              alt="Close"
+              width={48}
+              height={48}
+              className="w-12"
+              src="/close.svg"
+            />
           ) : (
-            <img className="w-12" src="/menu.svg" />
+            <Image
+              alt="Menu"
+              width={48}
+              height={48}
+              className="w-12"
+              src="/menu.svg"
+            />
           )}
         </button>
       </div>
       {showMenu && (
         <div className="w-full">
           <div className="flex justify-end mt-4 mr-4">
-            <img className="w-12" src="/tree.svg" />
+            <Image
+              alt="Logo"
+              width={48}
+              height={48}
+              className="w-12"
+              src="/tree.svg"
+            />
           </div>
           <ul className="flex flex-col gap-4 ml-6 mt-24 text-lg font-bold underline-offset-4 decoration-2">
             <Link

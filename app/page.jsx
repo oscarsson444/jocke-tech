@@ -1,4 +1,5 @@
 import { Jersey_15 } from "next/font/google";
+import Image from "next/image";
 
 const jersey = Jersey_15({
   weight: ["400"],
@@ -10,7 +11,13 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-10 animate-fadeIn min-h-screen justify-center">
       <div className="flex sm:flex-row flex-col gap-4 justify-center items-center">
-        <img className="w-32" src="/tree.svg" />
+        <Image
+          className="w-32"
+          alt="Logo"
+          width={128}
+          height={128}
+          src="/tree.svg"
+        />
         <div className={jersey.className}>
           <p className=" text-7xl">jocke.tech</p>
         </div>
@@ -22,7 +29,10 @@ export default function Home() {
           rel="noopener noreferrer"
           className=""
         >
-          <img
+          <Image
+            alt="Logo"
+            width={64}
+            height={64}
             className="w-16 p-1 hover:p-0 transition-all duration-100"
             src="/git.svg"
           />
@@ -33,7 +43,10 @@ export default function Home() {
           rel="noopener noreferrer"
           className=""
         >
-          <img
+          <Image
+            alt="Logo"
+            width={64}
+            height={64}
             className="w-16 p-1 hover:p-0 transition-all duration-100"
             src="/linkedin.svg"
           />
@@ -44,7 +57,10 @@ export default function Home() {
           rel="noopener noreferrer"
           className=""
         >
-          <img
+          <Image
+            alt="Logo"
+            width={64}
+            height={64}
             className="w-16 p-1 hover:p-0 transition-all duration-100"
             src="/mail.svg"
           />

@@ -1,5 +1,6 @@
 import { Raleway } from "next/font/google";
 import { Jersey_15 } from "next/font/google";
+import Image from "next/image";
 
 const jersey = Jersey_15({
   weight: ["400"],
@@ -17,7 +18,13 @@ export default function Contact() {
   return (
     <div className="flex flex-col gap-10 animate-fadeIn min-h-screen justify-center">
       <div className="flex sm:flex-row flex-col gap-4 justify-center items-center">
-        <img className="w-32" src="/bird.svg" />
+        <Image
+          alt="Bird"
+          width={128}
+          height={128}
+          className="w-32"
+          src="/bird.svg"
+        />
         <div className={jersey.className}>
           <p className=" text-7xl">Contact</p>
         </div>
@@ -33,7 +40,10 @@ export default function Contact() {
           rel="noopener noreferrer"
           className=""
         >
-          <img
+          <Image
+            alt="Git"
+            width={64}
+            height={64}
             className="w-16 p-1 hover:p-0 transition-all duration-100"
             src="/git.svg"
           />
@@ -44,7 +54,10 @@ export default function Contact() {
           rel="noopener noreferrer"
           className=""
         >
-          <img
+          <Image
+            alt="Linkedin"
+            width={64}
+            height={64}
             className="w-16 p-1 hover:p-0 transition-all duration-100"
             src="/linkedin.svg"
           />
@@ -55,7 +68,10 @@ export default function Contact() {
           rel="noopener noreferrer"
           className=""
         >
-          <img
+          <Image
+            alt="Mail"
+            width={64}
+            height={64}
             className="w-16 p-1 hover:p-0 transition-all duration-100"
             src="/mail.svg"
           />
