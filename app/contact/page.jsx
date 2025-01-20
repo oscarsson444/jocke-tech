@@ -1,10 +1,8 @@
-import { Raleway } from "next/font/google";
-import { Jersey_15 } from "next/font/google";
+import { Jersey_15, Raleway } from "next/font/google";
 import Image from "next/image";
+import bird from "../images/bird.svg";
 import git from "../images/git.svg";
 import linkedin from "../images/linkedin.svg";
-import mail from "../images/mail.svg";
-import bird from "../images/bird.svg";
 
 const jersey = Jersey_15({
   weight: ["400"],
@@ -35,7 +33,7 @@ export default function Contact() {
       </div>
       <p className={`${raleway.className} text-lg font-bold text-center`}>
         {" "}
-        You can reach me on the following social medias or by email.
+        You can reach me on the following social medias.
       </p>
       <div className="flex flex-row gap-6 items-center justify-center">
         <a
@@ -64,20 +62,6 @@ export default function Contact() {
             height={64}
             className="w-16 p-1 hover:p-0 transition-all duration-100"
             src={linkedin}
-          />
-        </a>
-        <a
-          href={"mailto:oscarsson444@gmail.com"}
-          target="_blank"
-          rel="noopener noreferrer"
-          className=""
-        >
-          <Image
-            alt="Mail"
-            width={64}
-            height={64}
-            className="w-16 p-1 hover:p-0 transition-all duration-100"
-            src={mail}
           />
         </a>
       </div>
