@@ -18,7 +18,7 @@ const raleway = Raleway({
 
 export default function Contact() {
   return (
-    <div className="flex flex-col gap-10 animate-fadeIn min-h-screen justify-center">
+    <div className="flex flex-col gap-10 animate-fadeIn min-h-screen justify-center p-4">
       <div className="flex sm:flex-row flex-col gap-4 justify-center items-center">
         <Image
           alt="Bird"

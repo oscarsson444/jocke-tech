@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { Raleway } from "next/font/google";
 import Image from "next/image";
@@ -18,20 +18,13 @@ export default function Menu() {
   const [showMenu, setShowMenu] = useState(true);
   const [isDesktop, setIsDesktop] = useState(true);
   const pathname = usePathname();
+  const menuRef = useRef(null);
 
   useEffect(() => {
     const checkIsMobile = () => {
-      try {
-        const userAgent = navigator.userAgent.toLowerCase();
-        const mobileRegex =
-          /(android|iphone|ipad|ipod|blackberry|windows phone)/i;
-        const isBigScreen = window.innerWidth >= 800;
-        const isDesktop = mobileRegex.test(userAgent);
-        setShowMenu(isDesktop || isBigScreen);
-        setIsDesktop(isBigScreen || isDesktop);
-      } catch (error) {
-        console.error("Error detecting mobile:", error);
-      }
+      const isBigScreen = window.innerWidth >= 800;
+      setIsDesktop(isBigScreen);
+      setShowMenu(isBigScreen);
     };
 
     // Check on mount
@@ -45,6 +38,25 @@ export default function Menu() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Close menu on outside click
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setShowMenu(false);
+      }
+    };
+
+    if (!isDesktop) {
+      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener("touchstart", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
+  }, [isDesktop]);
+
   const handleOnClick = () => {
     if (!isDesktop) {
       setShowMenu(false);
@@ -53,6 +65,7 @@ export default function Menu() {
 
   return (
     <div
+      ref={menuRef}
       className={`fixed sm:relative transition-all z-20 min-h-screen ${
         showMenu ? "sm:w-1/5 w-3/5" : "w-0"
       } bg-black text-yellow-300 ${raleway.className}`}

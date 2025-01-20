@@ -17,8 +17,8 @@ const raleway = Raleway({
 
 export default function About() {
   return (
-    <div className="flex flex-col gap-10 animate-fadeIn min-h-screen justify-center sm:mt-0 mt-16 sm:mb-0 mb-4 sm:px-0 px-4">
-      <div className="flex sm:flex-row flex-col gap-4 justify-center items-center overflow-scroll">
+    <div className="flex flex-col gap-10 animate-fadeIn min-h-screen justify-center items-center sm:pt-0 pt-16 sm:pb-0 pb-4 sm:px-0 px-4">
+      <div className="flex sm:flex-row flex-col gap-4 justify-center items-center">
         <Image
           alt="Mountain"
           width={128}
@@ -32,7 +32,7 @@ export default function About() {
       </div>
       <div className="flex flex-row gap-6 items-center justify-center">
         <p
-          className={`${raleway.className} text-lg font-bold sm:w-96 w-full text-center overflow-scroll`}
+          className={`${raleway.className} text-lg font-bold sm:w-96 w-full text-center`}
         >
           {" "}
           Hi! My name is Joakim and I like to tinker with technology. On this
