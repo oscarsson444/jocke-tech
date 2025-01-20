@@ -103,7 +103,7 @@ export default function Menu() {
         </button>
       </div>
       {showMenu && (
-        <div className="w-full">
+        <div className="flex flex-col gap-20">
           <div className="flex justify-end mt-4 mr-4">
             <Image
               alt="Logo"
@@ -113,13 +113,23 @@ export default function Menu() {
               src={tree}
             />
           </div>
-          <ul className="flex flex-col gap-4 ml-6 mt-24 text-lg font-bold underline-offset-4 decoration-2">
+          <div
+            className="flex flex-col gap-4 ml-6 text-lg font-bold underline-offset-4 decoration-2"
+            style={{ animationDelay: "0.2s" }}
+          >
             <Link
               className={`${
                 pathname === "/" ? "underline " : ""
               } hover:text-xl transition-all duration-30 w-fit `}
               href={`/`}
               onClick={handleOnClick}
+              style={{
+                opacity: 0, // Initially hidden
+                animationDelay: "0.2s",
+                animationName: "fadeIn", // Explicitly set animation name
+                animationDuration: "1s",
+                animationFillMode: "forwards",
+              }}
             >
               Home
             </Link>
@@ -130,6 +140,13 @@ export default function Menu() {
               } hover:text-xl transition-all duration-30 w-fit `}
               href={`/posts`}
               onClick={handleOnClick}
+              style={{
+                opacity: 0, // Initially hidden
+                animationDelay: "0.2s",
+                animationName: "fadeIn", // Explicitly set animation name
+                animationDuration: "1s",
+                animationFillMode: "forwards",
+              }}
             >
               Posts
             </Link>
@@ -140,6 +157,13 @@ export default function Menu() {
               } hover:text-xl transition-all duration-30 w-fit `}
               href={`/about`}
               onClick={handleOnClick}
+              style={{
+                opacity: 0, // Initially hidden
+                animationDelay: "0.2s",
+                animationName: "fadeIn", // Explicitly set animation name
+                animationDuration: "1s",
+                animationFillMode: "forwards",
+              }}
             >
               About
             </Link>
@@ -150,10 +174,17 @@ export default function Menu() {
               } hover:text-xl transition-all duration-30 w-fit `}
               href={`/contact`}
               onClick={handleOnClick}
+              style={{
+                opacity: 0, // Initially hidden
+                animationDelay: "0.2s",
+                animationName: "fadeIn", // Explicitly set animation name
+                animationDuration: "1s",
+                animationFillMode: "forwards",
+              }}
             >
               Contact
             </Link>
-          </ul>
+          </div>
         </div>
       )}
     </div>

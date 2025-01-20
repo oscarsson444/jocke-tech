@@ -17,7 +17,16 @@ const raleway = Raleway({
 
 export default function About() {
   return (
-    <div className="flex flex-col gap-10 animate-fadeIn min-h-screen justify-center items-center sm:pt-0 pt-16 sm:pb-0 pb-4 sm:px-0 px-4">
+    <div
+      className="flex flex-col gap-10 min-h-screen justify-center items-center sm:pt-0 pt-16 sm:pb-0 pb-4 sm:px-0 px-4"
+      style={{
+        opacity: 0, // Initially hidden
+        animationDelay: "0.2s",
+        animationName: "fadeIn", // Explicitly set animation name
+        animationDuration: "1s",
+        animationFillMode: "forwards",
+      }}
+    >
       <div className="flex sm:flex-row flex-col gap-4 justify-center items-center">
         <Image
           alt="Mountain"

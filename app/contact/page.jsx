@@ -18,7 +18,16 @@ const raleway = Raleway({
 
 export default function Contact() {
   return (
-    <div className="flex flex-col gap-10 animate-fadeIn min-h-screen justify-center p-4">
+    <div
+      className="flex flex-col gap-10 min-h-screen justify-center p-4"
+      style={{
+        opacity: 0, // Initially hidden
+        animationDelay: "0.2s",
+        animationName: "fadeIn", // Explicitly set animation name
+        animationDuration: "1s",
+        animationFillMode: "forwards",
+      }}
+    >
       <div className="flex sm:flex-row flex-col gap-4 justify-center items-center">
         <Image
           alt="Bird"

@@ -12,7 +12,16 @@ const jersey = Jersey_15({
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-10 animate-fadeIn min-h-screen justify-center">
+    <div
+      className="flex flex-col gap-10 min-h-screen justify-center"
+      style={{
+        opacity: 0, // Initially hidden
+        animationDelay: "0.2s",
+        animationName: "fadeIn", // Explicitly set animation name
+        animationDuration: "1s",
+        animationFillMode: "forwards",
+      }}
+    >
       <div className="flex sm:flex-row flex-col gap-4 justify-center items-center">
         <Image
           className="w-32"
